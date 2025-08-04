@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mango Projects - Обучающие проекты</title>
+        <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango Projects - Обучающие проекты</title>
+    <style>
+        :root {
+            --mango-primary: #FF8A65;
+            --mango-secondary: #FFCC80;
+            --mango-accent: #FF7043;
+            --mango-light: #FFF3E0;
+            --mango-dark: #E64A19;
+            --mango-text: #5D4037;
+            --mango-success: #66BB6A;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--mango-light);
+            color: var(--mango-text);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--mango-primary), var(--mango-accent));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding-bottom: 4rem;
+            margin-bottom: -2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: "🥭";
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            right: -5rem;
+            top: -5rem;
+            z-index: 0;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-image {
+            height: 180px;
+            background-color: var(--mango-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--mango-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .project-level {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--mango-accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .project-level.beginner {
+            background-color: var(--mango-success);
+        }
+        
+        .project-level.advanced {
+            background-color: var(--mango-dark);
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--mango-dark);
+        }
+        
+        .project-description {
+            margin-bottom: 1.2rem;
+            color: var(--mango-text);
+            opacity: 0.8;
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--mango-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-tag::before {
+            content: "✓";
+            margin-right: 0.3rem;
+            color: var(--mango-success);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background-color: var(--mango-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background-color: var(--mango-accent);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--mango-primary);
+            color: var(--mango-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--mango-primary);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            font-size: 2rem;
+            color: var(--mango-dark);
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--mango-accent);
+            margin: 0.5rem auto 0;
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            background-color: white;
+            border: 1px solid var(--mango-secondary);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--mango-primary);
+            color: white;
+            border-color: var(--mango-primary);
+            transform: translateY(-2px);
+        }
+        
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--mango-text);
+            opacity: 0.7;
+        }
+        
+        .project-completed {
+            color: var(--mango-success);
+            font-weight: bold;
+        }
+        
+        .footer {
+            background-color: var(--mango-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+        
+        .search-bar {
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--mango-secondary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            border-color: var(--mango-primary);
+            box-shadow: 0 0 0 3px rgba(255, 138, 101, 0.3);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--mango-primary);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+                padding-bottom: 5rem;
+            }
+            
+            .header::after {
+                font-size: 10rem;
+                right: -2rem;
+                top: -1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">🥭 Mango Projects</div>
+            <p class="tagline">Сочные проекты для обучения веб-разработке. Выбирай проект и создавай свой шедевр!</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">Наши проекты</h2>
+        
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Поиск проектов...">
+            <button class="search-btn">Найти</button>
+        </div>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="html">HTML/CSS</button>
+            <button class="filter-btn" data-filter="js">JavaScript</button>
+            <button class="filter-btn" data-filter="beginner">Для начинающих</button>
+            <button class="filter-btn" data-filter="advanced">Продвинутые</button>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Проект 1 -->
+            <div class="project-card" data-category="html js beginner">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <span class="project-level beginner">Начинающий</span>
+                    <h3 class="project-title">Интернет-магазин</h3>
+                    <p class="project-description">Создайте одностраничный интернет-магазин с товарами и корзиной покупок.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 4-6 часов</span>
+                        <span class="project-completed">✅ 1804 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+            
+            <!-- Проект 2 -->
+            <div class="project-card" data-category="html beginner">
+                <div class="project-image">📝</div>
+                <div class="project-content">
+                    <span class="project-level beginner">Начинающий</span>
+                    <h3 class="project-title">Личный блог</h3>
+                    <p class="project-description">Разработайте персональный блог с возможностью добавления статей.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 2-4 часа</span>
+                        <span class="project-completed">✅ 987 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+            
+            <!-- Проект 3 -->
+            <div class="project-card" data-category="js">
+                <div class="project-image">⏱️</div>
+                <div class="project-content">
+                    <span class="project-level">Средний</span>
+                    <h3 class="project-title">Таймер Pomodoro</h3>
+                    <p class="project-description">Создайте таймер для техники Pomodoro с настройками работы и отдыха.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 5-8 часов</span>
+                        <span class="project-completed">✅ 774 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+            
+            <!-- Проект 4 -->
+            <div class="project-card" data-category="js advanced">
+                <div class="project-image">🌦️</div>
+                <div class="project-content">
+                    <span class="project-level advanced">Продвинутый</span>
+                    <h3 class="project-title">Погодное приложение</h3>
+                    <p class="project-description">Приложение для отображения погоды с использованием API.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">API</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Async</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 8-12 часов</span>
+                        <span class="project-completed">✅ 669 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+            
+            <!-- Проект 5 -->
+            <div class="project-card" data-category="js advanced">
+                <div class="project-image">🎮</div>
+                <div class="project-content">
+                    <span class="project-level advanced">Продвинутый</span>
+                    <h3 class="project-title">Игра "Память"</h3>
+                    <p class="project-description">Создайте игру на запоминание карточек с таймером и подсчетом очков.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Анимации</span>
+                        <span class="skill-tag">LocalStorage</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 10-15 часов</span>
+                        <span class="project-completed">✅ 452 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+            
+            <!-- Проект 6 -->
+            <div class="project-card" data-category="js advanced">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <span class="project-level advanced">Продвинутый</span>
+                    <h3 class="project-title">Дашборд аналитики</h3>
+                    <p class="project-description">Интерактивная панель с графиками и фильтрами для данных.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Chart.js</span>
+                        <span class="skill-tag">API</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>⏱️ 15-20 часов</span>
+                        <span class="project-completed">✅ 295 завершено</span>
+                    </div>
+                    <a href="#" class="btn">Начать проект</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">О проекте</a>
+                <a href="#" class="footer-link">Контакты</a>
+                <a href="#" class="footer-link">Помощь</a>
+                <a href="#" class="footer-link">Блог</a>
+            </div>
+            <p>🥭 Mango Projects - 2025 | Все проекты доступны для обучения</p>
+            <p>Создано с любовью и витаминами для разработчиков</p>
+        </div>
+    </footer>
